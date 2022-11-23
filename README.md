@@ -18,4 +18,4 @@ Assignment Five was to add functionality to the provided HTML and CSS files. By 
 N/A
 
 ## Usage
-![image](assets\images\Work-Day-Scheduler.png)
+![Work-Day-Scheduler](https://user-images.githubusercontent.com/114109203/203445272-b765a7ed-0f60-4628-885a-97857ab0a617.png)

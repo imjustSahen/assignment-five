@@ -1,5 +1,5 @@
 // Add date to header
-const currentDate = dayjs().format("MMMM D, YYYY");
+var currentDate = dayjs().format("MMMM D, YYYY");
 $("#currentDate").text(currentDate);
 
 function trackTime() {
@@ -7,7 +7,7 @@ function trackTime() {
   const timeNow = dayjs().hour();
 
   $(".time-block").each(function () {
-    const blockTime = parseInt($(this).attr("id").split("hour")[1]);
+    var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
     // Adjust background colors depending on past, present, & future
     if (blockTime < timeNow) {
@@ -26,12 +26,13 @@ function trackTime() {
   });
 }
 
+// Add input to Local Storage
 $(function () {
   // Event listener
   $(".saveBtn").on("click", function () {
-    // Get nearby values of the description in JQuery
-    let hour = $(this).parent().attr("id");
-    let description = $(this).siblings(".description").val();
+    // Use JQuery to get values of description
+    var hour = $(this).parent().attr("id");
+    var description = $(this).siblings(".description").val();
 
     // Save schedule to local storage
     localStorage.setItem(hour, description);
@@ -52,21 +53,15 @@ $(function () {
   trackTime();
 });
 
-// $(function () {
-//   $(function () {
-//     $(".saveBtn").on("dblclick", function () {
-//       localStorage.removeItem(hour, description);
-//     });
+// Remove Individual Inputs from Local Storage and text area
+$(function () {
+  // Event Listener
+  $(".saveBtn").on("dblclick", function () {
+    var hour = $(this).parent().attr("id");
+    // Use Jquery to clear values with an empty string
+    var description = $(this).siblings(".description").val("");
 
-//     $("#hour8 .description").val(localStorage.removeItem("hour8"));
-//     $("#hour9 .description").val(localStorage.removeItem("hour9"));
-//     $("#hour10 .description").val(localStorage.removeItem("hour10"));
-//     $("#hour11 .description").val(localStorage.removeItem("hour11"));
-//     $("#hour12 .description").val(localStorage.removeItem("hour12"));
-//     $("#hour13 .description").val(localStorage.removeItem("hour13"));
-//     $("#hour14 .description").val(localStorage.removeItem("hour14"));
-//     $("#hour15 .description").val(localStorage.removeItem("hour15"));
-//     $("#hour16 .description").val(localStorage.removeItem("hour16"));
-//     $("#hour17 .description").val(localStorage.removeItem("hour17"));
-//   });
-// });
+    // Remove schedule from Local Storage
+    localStorage.removeItem(hour, description);
+  });
+});

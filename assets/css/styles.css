@@ -70,6 +70,14 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
+#instructions {
+  color: lightblue;
+  background-color: rgba(0, 0, 0, 0.788);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 20px;
+}
+
 /* This will be applied on any screen 768px and below */
 @media screen and (max-width: 768px) {
   .row {
